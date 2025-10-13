@@ -14,7 +14,5 @@ spring:
         use_sql_comments: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
-  profiles:
-    active: native
 server:
   port: 8888
