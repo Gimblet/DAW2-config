@@ -2,5 +2,5 @@ spring:
   application:
     name: Autenticacion
 jwt:
-  secret: ${SECRET}
+  secret: TuClaveSuperSecretaMuyLarga1234567890
   expiration: 36000000
