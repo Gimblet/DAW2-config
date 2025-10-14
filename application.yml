@@ -14,5 +14,13 @@ spring:
         use_sql_comments: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+eureka:
+  instance:
+    instance-id: ${random.value}
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 0
