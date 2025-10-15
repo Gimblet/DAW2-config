@@ -16,7 +16,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
 eureka:
   instance:
-    instance-id: ${random.value}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     prefer-ip-address: true
     hostname: localhost
   client:
