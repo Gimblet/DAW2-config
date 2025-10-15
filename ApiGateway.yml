@@ -1,6 +1,6 @@
 spring:
   application:
-    name: API_Gateway
+    name: ApiGateway
   cloud:
     gateway:
       discovery:
