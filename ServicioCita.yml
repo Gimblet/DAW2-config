@@ -1,5 +1,4 @@
 spring:
   application:
     name: ServicioCita
-  config:
-    import: configserver:http://localhost:8888
+
