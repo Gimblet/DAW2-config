@@ -7,15 +7,31 @@ resilience4j:
     instances:
       ordenService:
         register-health-indicator: true
-        sliding-window-type: count-based     #contador de llamadas
-        sliding-window-size: 10              #evaluar ultimas 10 llamadas
-        minimum-number-of-calls: 5           #minimo de llamadas para calcular el fallo
-        failure-rate-threshold: 50           #abrir el circuito en 50%
-        wait-duration-in-open-state: 30s     #esperar 30s antes de pasar al half-open
-        permitted-number-of-calls-in-half-open-state: 3  #hacer 3 llamadas de prueba antes de cerrar
-        automatic-transition-from-open-to-half-open-enabled: true  #reintentar automaticamente
+        sliding-window-type: count-based
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50 
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
   retry:
     instances:
       ordenService:
-        max-attempts: 3          #reintentar 3 veces antes del fallo definitivo
-        wait-duration: 2s        #esperar 2s para cada reintento
+        max-attempts: 3
+        wait-duration: 2s
+  circuitbreaker:
+    instances:
+      detalleOrdenService:
+        register-health-indicator: true
+        sliding-window-type: count-based
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    instances:
+      detalleOrdenService:
+        max-attempts: 3
+        wait-duration: 2s
