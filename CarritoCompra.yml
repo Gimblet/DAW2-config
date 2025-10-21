@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: CarritoCompra
+  config:
+    import: configserver:http://localhost:8888
