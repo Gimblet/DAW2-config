@@ -13,3 +13,34 @@ spring:
 app:
   topic:
     name: producto-notification
+resilience4j:
+  circuitbreaker:
+    instances:
+      productoGeneral:
+        register-health-indicator: true
+        sliding-window-type: count_based
+        sliding-window-size: 6
+        minimum-number-of-calls: 3
+        failure-rate-threshold: 65
+        wait-duration-in-open-state:
+          seconds: 10
+        permitted-number-of-calls-in-half-open-state: 2
+      productoList:
+        register-health-indicator: true
+        sliding-window-type: count_based
+        sliding-window-size: 10
+        minimum-number-of-calls: 4
+        failure-rate-threshold: 70
+        wait-duration-in-open-state:
+          seconds: 15
+        permitted-number-of-calls-in-half-open-state: 2
+  retry:
+    instances:
+      productoGeneral:
+        max-attempts: 2
+        wait-duration:
+          seconds: 1
+      productoList:
+        max-attempts: 3
+        wait-duration:
+          seconds: 1
