@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: Autenticacion
-jwt:
-  secret: TuClaveSuperSecretaMuyLarga1234567890
-  expiration: 36000000

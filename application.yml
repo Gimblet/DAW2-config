@@ -2,7 +2,7 @@ spring:
   application:
     name: daw2-config-repo
   datasource:
-    url: jdbc:mysql://localhost:3306/vetmarket
+    url: jdbc:mysql://mysql-database/vetmarket
     username: root
     password: mysql
   jpa:
