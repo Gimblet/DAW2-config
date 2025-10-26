@@ -5,6 +5,7 @@ spring:
     url: jdbc:mysql://mysql-database:3306/vetmarket
     username: root
     password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
