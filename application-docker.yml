@@ -2,19 +2,19 @@ spring:
   application:
     name: daw2-config-repo
   datasource:
-    #url: jdbc:mysql://mysql-database:3306/vetmarket
-    #username: root
-    #password: mysql
-    #driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-database:3306/vetmarket
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    #hibernate:
-      #ddl-auto: update
-    #show-sql: true
-    #properties:
-      #hibernate:
-        #use_sql_comments: true
-        #format_sql: true
-        #dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        use_sql_comments: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -31,8 +31,3 @@ management:
   endpoint:
     health:
       show-details: always
-
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
