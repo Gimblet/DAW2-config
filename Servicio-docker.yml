@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: Servicio
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  # ✅ Configuración para subida de archivos (HTTP)
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+app:
+  topic:
+    name: servicio-notification
+resilience4j:
+  circuitbreaker:
+    instances:
+      servicioService:
+        register-health-indicator: true
+        sliding-window-type: count-based
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+
+retry:
+  servicioService:
+    max-attempts: 3
+    wait-duration: 2s
