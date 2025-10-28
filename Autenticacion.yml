@@ -4,22 +4,3 @@ spring:
 jwt:
   secret: TuClaveSuperSecretaMuyLarga1234567890
   expiration: 36000000
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      usuarioService:
-        register-health-indicator: true
-        sliding-window-type: count-based
-        sliding-window-size: 8
-        minimum-number-of-calls: 4
-        failure-rate-threshold: 60
-        wait-duration-in-open-state: 20s
-        permitted-number-of-calls-in-half-open-state: 2
-        automatic-transition-from-open-to-half-open-enabled: true
-
-  retry:
-    instances:
-      usuarioService:
-        max-attempts: 3
-        wait-duration: 2s
