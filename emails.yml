@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Emails
+    name: emails
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
