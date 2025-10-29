@@ -16,6 +16,9 @@ spring:
 app:
   topic:
     name: servicio-notification
+  servicio:
+    topic:
+      name: servicio-notification
 resilience4j:
   circuitbreaker:
     instances:
