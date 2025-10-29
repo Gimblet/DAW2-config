@@ -15,7 +15,7 @@ spring:
       max-request-size: 10MB
 app:
   topic:
-    name: servicio-notification
+    name: producto-notification
   servicio:
     topic:
       name: servicio-notification
